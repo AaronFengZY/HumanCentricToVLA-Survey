@@ -1,39 +1,46 @@
-# From Human Videos to Robot Manipulation: A Survey on Action-Relevant Representation Transfer for Scalable Vision-Language-Action Learning
+<div align="center">
 
-This repository hosts the paper, figures, and (optional) companion materials for our survey on **using human videos as scalable supervision for Vision–Language–Action (VLA) learning**, focusing on how video signals are transformed into **action-relevant representations** that can bridge the embodiment gap to robot control.
 
-> **Key idea:** human videos are abundant but not directly “action data” for robots. We organize methods by the *representation bridge* they construct between passive video observation and robot-executable actions.
+  <h1>From Human Videos to Robot Manipulation: A Survey on Action-Relevant Representation Transfer for Scalable Vision-Language-Action Learning</h1>
 
----
+  <p>
+    <img src="https://img.shields.io/badge/Status-Under_Review-important?style=for-the-badge" alt="Status: Under Review">
+  </p>
 
-## 📄 Paper
+</div>
+## 📝 Abstract
 
-- **Title:** *From Human Videos to Robot Manipulation: A Survey on Action-Relevant Representation Transfer for Scalable Vision-Language-Action Learning*
-- **Venue:** IJCAI–ECAI 2026 (Survey Track) submission
-- **PDF:** `paper/ijcai_ecai_2026_survey.pdf`
+Recent progress in generalizable embodied control has been driven by large-scale pretraining of Vision–Language–Action (VLA) models. However, most existing approaches rely on large collections of robot demonstrations, which are costly to obtain and tightly coupled to specific embodiments.
 
-### Abstract (high level)
-We provide a unified view of how human videos become effective training signals for VLA models, via four major paradigms:
-1) **Latent Actions** (encode inter-frame changes into tokens/embeddings)  
-2) **World Models** (forecast future frames/features and distill into policies)  
-3) **Explicit 2D** cues (tracks/keypoints/masks/boxes as supervision)  
-4) **Explicit 3D** structure (hand/object pose, trajectories, MANO/meshes, etc.)
+Human videos, by contrast, are abundant and capture rich interactions. Yet, embodiment differences and the frequent absence of task-aligned annotations make their direct use in VLA models challenging.
 
-We also discuss open challenges around (i) episodizing unstructured videos, (ii) grounding under embodiment/viewpoint heterogeneity, and (iii) deployment-predictive evaluation and transfer efficiency.
+**This survey provides a unified view of how human videos are transformed into effective knowledge for VLA models.** We categorize existing approaches into four classes based on the action-related information they derive, and highlight key open challenges in structuring videos, grounding supervision, and evaluation.
 
 ---
 
-## 🧭 Taxonomy at a glance
+## 🧭 Taxonomy: Action-Relevant Representations
 
-Our survey categorizes human-video-to-robot transfer methods by **intermediate representation** (see Fig. 1 & Fig. 2 in the paper):
-- **Latent Action Abstraction**: compact discrete/continuous proxies for actions  
-- **Predictive World Modeling**: future prediction as action-relevant learning signal  
-- **Explicit 2D Representations**: point tracks / keypoints / boxes / contact points  
-- **Explicit 3D Representations**: SE(3) trajectories, MANO hand states, object pose changes, 3D affordances  
+To bridge the gap between passive human observation and active robot control, we identify four distinct routes based on the **nature of the constructed representations** (see **Figure 1** in the paper):
 
-We also include:
-- **Table 1:** method taxonomy + video sources + representation + end-effector  
-- **Table 2:** human-video dataset map by (explicit 3D signals) × (scripted vs in-the-wild)
+* **Latent Action Abstraction**
+    * *Definition:* Circumvents explicit alignment by encoding inter-frame changes or intents into discrete codes or continuous embeddings.
+* **Predictive World Modeling**
+    * *Definition:* Uses video as a source of predictive learning signal to forecast future outcomes and distill these representations into policies.
+* **Explicit 2D Cues**
+    * *Definition:* Extracts interpretable image-plane signals—such as point tracks, masks, or flow—using off-the-shelf vision tools.
+* **Explicit 3D Structure**
+    * *Definition:* Recovers 3D structure (poses/trajectories) to retarget motion into robot-compatible action spaces.
+
+---
+
+## 💡 Contributions
+
+1.  **Signal-centric Taxonomy:** We introduce a pipeline-based taxonomy of *representation bridges* that transform human videos into action-relevant representations, comparing the four routes in terms of representation form, scalability, and grounding requirements.
+2.  **Dataset Map & Available Signals:** We systematize representative human-video datasets along two axes—the availability of explicit geometric/3D signals and scripted vs. in-the-wild collection—and summarize how different supervision affordances support different transfer pipelines.
+3.  **Challenges at Three Interfaces:** We distill open problems at three critical interfaces:
+    * Scalable episodization of unstructured videos.
+    * Heterogeneity-aware grounding under embodiment/viewpoint mismatch.
+    * Deployment-predictive evaluation for transfer efficiency.
 
 ### Taxonomy Figure
 <p align="center">
@@ -44,63 +51,59 @@ We also include:
 </p>
 
 
-## 📌 Paper List by Paradigm (WIP)
+## 📌 Paper List by Paradigm
 
 ### (I) Latent Actions Papers
 
-| Paper | Year | Link |
-| --- | --- | --- |
-| **LAPA** | 2024 | [arXiv:2410.11758](https://arxiv.org/abs/2410.11758) |
-| **IGOR** | 2024 | [arXiv:2411.00785](https://arxiv.org/abs/2411.00785) |
-| **Moto** | 2024 | [arXiv:2412.04445](https://arxiv.org/abs/2412.04445) |
-| **GO-1** | 2025 | [arXiv:2503.06669](https://arxiv.org/abs/2503.06669) |
-| **GR00T** | 2025 | [arXiv:2503.14734](https://arxiv.org/abs/2503.14734) |
-| **UniVLA** | 2025 | [arXiv:2505.06111](https://arxiv.org/abs/2505.06111) |
-| **Villa-X** | 2025 | [arXiv:2507.23682](https://arxiv.org/abs/2507.23682) |
-| **ViPRA** | 2025 | [arXiv:2511.07732](https://arxiv.org/abs/2511.07732) |
-| **LAWM** | 2025 | [arXiv:2512.10016](https://arxiv.org/abs/2512.10016) |
-| **Motus** | 2025 | [arXiv:2512.13030](https://arxiv.org/abs/2512.13030) |
-| **CLAP** | 2026 | [arXiv:2601.04061](https://arxiv.org/abs/2601.04061) |
-
+| Paper | Date |
+| --- | --- |
+| [LAPA](https://arxiv.org/abs/2410.11758) | 2024-10 |
+| [IGOR](https://arxiv.org/abs/2411.00785) | 2024-10 |
+| [Moto](https://arxiv.org/abs/2412.04445) | 2024-12 |
+| [GO-1](https://arxiv.org/abs/2503.06669) | 2025-03 |
+| [GR00T](https://arxiv.org/abs/2503.14734) | 2025-03 |
+| [UniVLA](https://arxiv.org/abs/2505.06111) | 2025-05 |
+| [Villa-X](https://arxiv.org/abs/2507.23682) | 2025-07 |
+| [ViPRA](https://arxiv.org/abs/2511.07732) | 2025-11 |
+| [LAWM](https://arxiv.org/abs/2512.10016) | 2025-12 |
+| [Motus](https://arxiv.org/abs/2512.13030) | 2025-12 |
+| [CLAP](https://arxiv.org/abs/2601.04061) | 2026-01 |
 
 
 ### (II) World Models
 
-| Paper | Year | Link |
-| --- | --- | --- |
-| **GR-1** | 2023 | [arXiv:2312.13139](https://arxiv.org/abs/2312.13139) |
-| **GR-2** | 2024 | [arXiv:2410.06158](https://arxiv.org/abs/2410.06158) |
-| **VPP** | 2024 | [arXiv:2412.14803](https://arxiv.org/abs/2412.14803) |
-| **FLARE** | 2025 | [arXiv:2505.15659](https://arxiv.org/abs/2505.15659) |
-| **mimic-video** | 2025 | [arXiv:2512.15692](https://arxiv.org/abs/2512.15692) |
-| **Gen2Act** | 2024 | [arXiv:2409.16283](https://arxiv.org/abs/2409.16283) |
+| Paper | Date |
+| --- | --- |
+| [GR-1](https://arxiv.org/abs/2312.13139) | 2023-12 |
+| [Gen2Act](https://arxiv.org/abs/2409.16283) | 2024-09 |
+| [GR-2](https://arxiv.org/abs/2410.06158) | 2024-10 |
+| [VPP](https://arxiv.org/abs/2412.14803) | 2024-12 |
+| [FLARE](https://arxiv.org/abs/2505.15659) | 2025-05 |
+| [mimic-video](https://arxiv.org/abs/2512.15692) | 2025-12 |
 
+### (III) Explicit 2D
 
-### (III) Explicit 2D Papers
-
-| Paper | Year | Link |
-| --- | --- | --- |
-| **ATM** | 2024 | [arXiv:2401.00025](https://arxiv.org/abs/2401.00025) |
-| **Magma** | 2025 | [arXiv:2502.13130](https://arxiv.org/abs/2502.13130) |
-| **Gemini Robotics** | 2025 | [arXiv:2503.20020](https://arxiv.org/abs/2503.20020) |
-| **A0** | 2025 | [arXiv:2504.12636](https://arxiv.org/abs/2504.12636) |
-| **Masquerade** | 2025 | [arXiv:2508.09976](https://arxiv.org/abs/2508.09976) |
-
+| Paper | Date |
+| --- | --- |
+| [ATM](https://arxiv.org/abs/2401.00025) | 2023-12 |
+| [Magma](https://arxiv.org/abs/2502.13130) | 2025-02 |
+| [Gemini Robotics](https://arxiv.org/abs/2503.20020) | 2025-03 |
+| [A0](https://arxiv.org/abs/2504.12636) | 2025-04 |
+| [Masquerade](https://arxiv.org/abs/2508.09976) | 2025-08 |
 
 ### (IV) Explicit 3D Papers
 
-| Paper | Year | Link |
-| --- | --- | --- |
-| **VidBot** | 2025 | [arXiv:2503.07135](https://arxiv.org/abs/2503.07135) |
-| **EgoVLA** | 2025 | [arXiv:2507.12440](https://arxiv.org/abs/2507.12440) |
-| **Being-H0** | 2025 | [arXiv:2507.15597](https://arxiv.org/abs/2507.15597) |
-| **H-RDT** | 2025 | [arXiv:2507.23523](https://arxiv.org/abs/2507.23523) |
-| **MotionTrans** | 2025 | [arXiv:2509.17759](https://arxiv.org/abs/2509.17759) |
-| **Yoshida et al.** | 2025 | [arXiv:2509.21986](https://arxiv.org/abs/2509.21986) |
-| **VITRA** | 2025 | [arXiv:2510.21571](https://arxiv.org/abs/2510.21571) |
-| **In-N-On** | 2025 | [arXiv:2511.15704](https://arxiv.org/abs/2511.15704) |
-| **Simar et al.** | 2025 | [arXiv:2512.22414](https://www.google.com/search?q=https://arxiv.org/abs/2512.22414) |
-
+| Paper | Date |
+| --- | --- |
+| [VidBot](https://arxiv.org/abs/2503.07135) | 2025-03 |
+| [EgoVLA](https://arxiv.org/abs/2507.12440) | 2025-07 |
+| [Being-H0](https://arxiv.org/abs/2507.15597) | 2025-07 |
+| [H-RDT](https://arxiv.org/abs/2507.23523) | 2025-07 |
+| [MotionTrans](https://arxiv.org/abs/2509.17759) | 2025-09 |
+| [Yoshida et al.](https://arxiv.org/abs/2509.21986) | 2025-09 |
+| [VITRA](https://arxiv.org/abs/2510.21571) | 2025-10 |
+| [In-N-On](https://arxiv.org/abs/2511.15704) | 2025-11 |
+| [Simar et al.](https://arxiv.org/abs/2512.22414) | 2025-12 |
 ---
 
 ## 🧩 Open challenges highlighted in the paper
