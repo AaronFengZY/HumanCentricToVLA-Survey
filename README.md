@@ -8,6 +8,7 @@
   </p>
 
 </div>
+
 ## 📝 Abstract
 
 Recent progress in generalizable embodied control has been driven by large-scale pretraining of Vision–Language–Action (VLA) models. However, most existing approaches rely on large collections of robot demonstrations, which are costly to obtain and tightly coupled to specific embodiments.
