@@ -43,29 +43,6 @@ We also include:
   <em>Figure: Taxonomy landscape of human-video-to-robot transfer methodologies.</em>
 </p>
 
-<!-- ---
-
-## 📁 Repository structure (suggested)
-
-```
-
-.
-├── paper/
-│   └── ijcai_ecai_2026_survey.pdf
-├── figures/
-│   └── tree.jpg
-├── docs/
-│   ├── CHANGELOG.md
-│   └── FAQ.md
-└── README.md -->
-
-````
-
-You can keep this repo lightweight (PDF + key figures), or optionally add:
-- `paper/tex/` for LaTeX sources
-- `paper/bib/refs.bib` for bibliography
-- vector versions of figures (`.pdf` / `.svg`)
-
 
 ## 📌 Paper List by Paradigm (WIP)
 
