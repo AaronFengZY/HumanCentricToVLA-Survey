@@ -19,7 +19,7 @@
     </td>
     <td width="45%" valign="top" style="border:none !important;">
       <p align="center">
-        <img src="figures/teaser.jpg" alt="Overview of scalable representation bridges for VLA models" width="420">
+        <img src="figures/teaser.png" alt="Overview of scalable representation bridges for VLA models" width="420">
       </p>
       <p align="left"><em>Overview of scalable representation bridges for VLA models. To leverage internet-scale human video data (top), existing methods bridge the embodiment gap via four routes: Latent Action Abstraction, Predictive World Modeling, Explicit 2D Cues, and Explicit 3D Structure. These representations transform diverse human videos into action-relevant learning signals, enabling VLA models to generate executable robot actions from image observations and language instructions (bottom).</em></p>
     </td>
@@ -31,7 +31,7 @@
 ## 🧭 Taxonomy: Action-Relevant Representations
 
 <p align="center">
-  <img src="figures/tree.jpg" alt="Taxonomy tree of human-video-to-robot transfer" width="900">
+  <img src="figures/tree.png" alt="Taxonomy tree of human-video-to-robot transfer" width="900">
 </p>
 <p align="center">
   <em>Taxonomy landscape of human-video-to-robot transfer methodologies.</em>
