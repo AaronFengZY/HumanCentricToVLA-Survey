@@ -3,7 +3,7 @@
 # From Human Videos to Robot Manipulation: A Survey on Action-Relevant Representation Transfer for Scalable Vision-Language-Action Learning
 
 <p align="center">
-  <a href="https://github.com/AaronFengZY/HumanVideoForVLA"><img src="https://img.shields.io/badge/Project-Page-Green" alt="Project Page"></a>
+  <a href="https://aaronfengzy.github.io/HumanCentricToVLA-Survey/"><img src="https://img.shields.io/badge/Project-Page-Green" alt="Project Page"></a>
   <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.177126525.54038135/v1"><img src="https://img.shields.io/badge/TechRxiv-Page-purple" alt="TechRxiv Page"></a>
 </p>
 
