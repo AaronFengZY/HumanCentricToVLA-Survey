@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data.">
+  <meta name="keywords" content="MV-RoboBench, VLM, Spatial Reasoning, Robotics, Embodied AI">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      
+      <a class="navbar-item" href="https://aaronfengzy.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://microsoft.github.io/VITRA/">
+            VITRA
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</nav>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          
+          <h1 class="title is-2 publication-title">
+            From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data
+          </h1>
+          
+          <div class="is-size-3 publication-venue" style="color: #2974b5; font-weight: 400; margin-bottom: 20px;"></div>
+          
+          <div class="is-size-5 publication-authors author-lines" style="line-height: 1.6;">
+            <div class="author-line">
+              <span class="author-name"><a class="author-link-primary" href="https://aaronfengzy.github.io/">Zhiyuan Feng</a><sup>1,5*</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://scholar.google.com/citations?user=kGwtKVcAAAAJ&hl=en">Qixiu Li</a><sup>1,5*</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://scholar.google.com/citations?hl=en&user=4HaLG0oAAAAJ">Huizhi Liang</a><sup>1,5*</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://scholar.google.com/citations?user=TiHUw0UAAAAJ&hl=zh-CN">Rushuai Yang</a><sup>2,5*</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://scholar.google.com/citations?hl=en&user=4HaLG0oAAAAJ">Yichao Shen</a><sup>3,5*</sup></span>
+            </div>
+            <div class="author-line">
+              <span class="author-name"><a class="author-link-primary" href="https://scholar.google.com/citations?user=ZvRnonIAAAAJ&hl=en">Zhiying Du</a><sup>4,5*</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://www.zhangzhaowei.me/">Zhaowei Zhang</a><sup>5,6*</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://yudeng.github.io/">Yu Deng</a><sup>5†</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://www.microsoft.com/en-us/research/people/lizo/">Li Zhao</a><sup>5</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://sites.google.com/view/fromandto">Hao Zhao</a><sup>1</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://z0ngqing.github.io/">Zongqing Lu</a><sup>6</sup></span>
+            </div>
+            <div class="author-line">
+              <span class="author-name"><a class="author-link-primary" href="https://www.oiermees.com/">Oier Mees</a><sup>7</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://people.inf.ethz.ch/pomarc/">Marc Pollefeys</a><sup>7</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://jlyang.org/">Jiaolong Yang</a><sup>5†</sup></span>
+              <span class="author-name"><a class="author-link-primary" href="https://www.microsoft.com/en-us/research/people/bainguo/">Baining Guo</a><sup>5</sup></span>
+            </div>
+          </div>
+
+          <div class="author-meta-divider"></div>
+
+          <div class="is-size-6" style="margin-top: 15px; color: #4a4a4a;">
+            <span class="author-block"><sup>*</sup> Work done during internship at Microsoft Research</span> &nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>†</sup> Corresponding authors</span>
+          </div>
+
+          <div class="is-size-5 publication-authors author-affiliations" style="margin-top: 15px; color: #4a4a4a;">
+            <span class="author-block"><sup>1</sup>Tsinghua University</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>HKUST</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>Xi'an Jiaotong University</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>4</sup>Fudan University</span>
+            <br>
+            <span class="author-block"><sup>5</sup>Microsoft Research Asia</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>6</sup>Peking University</span>&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>7</sup>Microsoft Zurich</span>
+          </div>
+
+          <div class="column has-text-centered" style="margin-top: 20px;">
+            <div class="publication-links">
+              
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2510.19400"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/microsoft/MV-RoboBench?tab=readme-ov-file"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="abstract-inline" style="margin-top: 28px;">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <table border="0" cellspacing="0" cellpadding="0" style="border:none !important;border-collapse:collapse !important;">
+                <tr>
+                  <td width="55%" valign="top" style="border:none !important;">
+                    <p>Recent progress in generalizable embodied control has been driven by large-scale pretraining of Vision–Language–Action (VLA) models. However, most existing approaches rely on large collections of robot demonstrations, which are costly to obtain and tightly coupled to specific embodiments. Human videos, by contrast, are abundant and capture rich interactions, providing diverse semantic and physical cues for real-world manipulation. Yet, embodiment differences and the frequent absence of task-aligned annotations make their direct use in VLA models challenging.</p>
+                    <p>This survey provides a unified view of how human videos are transformed into effective knowledge for VLA models. We categorize existing approaches into four classes based on the action-related information they derive: (i) latent action representations that encode inter-frame changes; (ii) predictive world models that forecast future frames; (iii) explicit 2D supervision that extracts image-plane cues; and (iv) explicit 3D reconstruction that recovers geometry or motion. Beyond this taxonomy, we highlight three key open challenges in this area: structuring unstructured videos into training-ready episodes, grounding video-derived supervision into robot-executable actions under embodiment and viewpoint heterogeneity, and designing evaluation protocols that better predict real-world deployment performance and transfer efficiency, thereby informing future research directions.</p>
+                  </td>
+                  <td width="45%" valign="top" style="border:none !important;">
+                    <p align="center">
+                      <img src="./static/images/teaser.png" alt="Overview of scalable representation bridges for VLA models" width="420">
+                    </p>
+                    <p align="left"><em>Overview of scalable representation bridges for VLA models. To leverage internet-scale human video data (top), existing methods bridge the embodiment gap via four routes: Latent Action Abstraction, Predictive World Modeling, Explicit 2D Cues, and Explicit 3D Structure. These representations transform diverse human videos into action-relevant learning signals, enabling VLA models to generate executable robot actions from image observations and language instructions (bottom).</em></p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="author-meta-divider" style="margin-top: 24px;"></div>
+
+          <div class="taxonomy-inline" style="margin-top: 28px;">
+            <h2 class="title is-3 has-text-centered">From Video to Action: A Taxonomy of Representation Bridges</h2>
+            <div class="content has-text-justified">
+              <p>
+                We organize prior work into four representation bridges that translate human video into action-relevant signals.
+                Figure 2 shows the taxonomy, and Table 1 summarizes video sources, data scale, representations, and evaluated
+                end-effectors.
+              </p>
+            </div>
+
+            <div class="hero-figure" style="margin-top: 24px;">
+              <figure class="teaser-figure">
+                <div class="figure-media">
+                  <img
+                    class="figure-image"
+                    src="./static/images/tree.png"
+                    alt="Taxonomy of representation bridges from human videos to robot manipulation">
+                </div>
+                <figcaption class="figure-caption">
+                  <strong>Figure 2:</strong> Taxonomy of representation bridges from human videos to robot manipulation.
+                  Representative methods are organized into four paradigms by intermediate representations: Latent Actions,
+                  World Models, Explicit 2D Representations, and Explicit 3D Representations.
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="hero-figure" style="margin-top: 24px;">
+              <figure class="teaser-figure">
+                <div class="figure-media">
+                  <img
+                    class="figure-image"
+                    src="./static/images/table1.png"
+                    alt="Taxonomy table of representation bridges from human videos to robot manipulation">
+                </div>
+                <figcaption class="figure-caption">
+                  <strong>Table 1:</strong> Taxonomy of representation bridges from human videos to robot manipulation. The table
+                  summarizes video sources, data scale, representations, and the end-effectors evaluated in each work. Source and
+                  scale refer to human-video data only; "--" indicates not reported or not applicable, and "*" indicates frame-based
+                  statistics.
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="content has-text-justified" style="margin-top: 24px;">
+              <h3 class="title is-4">Latent Actions</h3>
+              <p>
+                Learn compact latent tokens that capture motion changes from video with strong bottlenecks, and use them as action proxies.
+                Representative works include <strong>LAPA</strong>, <strong>UniVLA</strong>, <strong>CLAP</strong>, and <strong>LAWM</strong>,
+                but very compact tokens may under-represent high-DoF dexterity.
+              </p>
+            </div>
+
+            <div class="content has-text-justified" style="margin-top: 24px;">
+              <h3 class="title is-4">World Models</h3>
+              <p>
+                Predict future observations or features from current video and language, then transfer the learned dynamics to action
+                prediction. Examples include <strong>GR-1/GR-2</strong>, <strong>FLARE</strong>, and <strong>Mimic-Video</strong>, with
+                planning variants like <strong>Gen2Act</strong>; training cost and transfer efficiency remain key challenges.
+              </p>
+            </div>
+
+            <div class="content has-text-justified" style="margin-top: 24px;">
+              <h3 class="title is-4">Explicit 2D Representations</h3>
+              <p>
+                Use 2D primitives such as keypoints, boxes, and trajectories as intermediate supervision.
+                Representative works include <strong>ATM</strong>, <strong>Magma</strong>, <strong>Gemini Robotics</strong>,
+                <strong>A0</strong>, and <strong>Masquerade</strong>; these cues are efficient but limited by depth and occlusion and can
+                inherit label noise.
+              </p>
+            </div>
+
+            <div class="content has-text-justified" style="margin-top: 24px;">
+              <h3 class="title is-4">Explicit 3D Representations</h3>
+              <p>
+                Recover 3D hand or object poses (often MANO-based) to align human motion with robot actions.
+                Examples include <strong>EgoVLA</strong>, <strong>H-RDT</strong>, <strong>Being-H0</strong>, and <strong>VITRA</strong>;
+                3D grounding is strong, but accurate 3D estimation in the wild remains difficult.
+              </p>
+            </div>
+          </div>
+
+          <div class="dataset-inline" style="margin-top: 28px;">
+            <h2 class="title is-3 has-text-centered">Human-Centric Data for VLA Learning</h2>
+            <div class="content has-text-justified">
+              <p>
+                We organize human-video datasets along two axes: whether they provide explicit metric 3D action labels and whether
+                collection is scripted or unscripted. This framing clarifies which datasets can directly ground supervision into
+                robot-executable actions versus those that require action inference from visual state changes.
+              </p>
+            </div>
+
+            <div class="hero-figure" style="margin-top: 24px;">
+              <figure class="teaser-figure">
+                <div class="figure-media">
+                  <img
+                    class="figure-image"
+                    src="./static/images/dataset.png"
+                    alt="Classification of human-video datasets for VLA learning">
+                </div>
+                <figcaption class="figure-caption">
+                  <strong>Figure 3:</strong> Classification of human-video datasets for VLA learning. We group datasets by the availability
+                  of explicit 3D action labels and whether collection is scripted or in-the-wild.
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="content has-text-justified" style="margin-top: 24px;">
+              <p>
+                <strong>Datasets without explicit 3D action labels</strong> provide RGB videos with semantic annotations but lack metric
+                hand/body trajectories. They primarily support latent-action and world-model approaches. Representative sources include
+                <strong>SSv2</strong>, <strong>EPIC-KITCHENS</strong>, <strong>Ego4D</strong>, <strong>HowTo100M</strong>, and
+                <strong>Ego-Exo4D</strong>. These datasets are large and diverse, but their unscripted nature often complicates episodization
+                and instruction alignment.
+              </p>
+              <p>
+                <strong>Datasets with explicit 3D action labels</strong> are collected with instrumented setups (AR/VR, RGB-D, or motion
+                capture) and provide 3D keypoints or parametric hand models (e.g., MANO). Examples include <strong>HOI4D</strong>,
+                <strong>HOT3D</strong>, <strong>EgoDex</strong>, <strong>ARCTIC</strong>, <strong>TACO</strong>, <strong>Assembly101</strong>,
+                <strong>OakInk2</strong>, and <strong>HoloAssist</strong>. They enable direct supervision but are typically smaller and more
+                scripted, trading scale for annotation fidelity.
+              </p>
+            </div>
+          </div>
+
+          <div class="challenges-inline" style="margin-top: 28px;">
+            <h2 class="title is-3 has-text-centered">Challenges and Future Directions</h2>
+            <div class="content has-text-justified">
+              <p>
+                We highlight three open challenges along the human-video-to-robot pipeline: episodization, heterogeneity, and evaluation.
+              </p>
+              <p>
+                <strong>Transforming videos to episodes.</strong> Web-scale videos are rarely segmented into training-ready episodes, and
+                weak alignment between narration and manipulation makes supervision noisy. Future episodization should be driven by semantic
+                and interaction cues (e.g., object state changes) rather than fixed windows.
+              </p>
+              <p>
+                <strong>Handling heterogeneity.</strong> Embodiment and viewpoint mismatches make retargeting under-constrained and
+                observations inconsistent. More robust transfer likely requires embodiment-aware grounding and representations anchored to
+                interaction outcomes instead of appearance.
+              </p>
+              <p>
+                <strong>Benchmarking and evaluation.</strong> Existing suites under-represent long-horizon, open-world diversity. Progress
+                depends on protocols that report performance versus robot-data budgets, test robustness to viewpoint/embodiment shifts, and
+                compare models with and without human-video pretraining under matched compute.
+              </p>
+            </div>
+          </div>
+
+          <div class="author-meta-divider" style="margin-top: 24px;"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <div class="bibtex-header">
+      <h2 class="title">BibTeX</h2>
+      <button class="button is-small is-light bibtex-copy" type="button" id="bibtex-copy-btn">Copy</button>
+    </div>
+    <pre><code id="bibtex-content">@article{feng2026human,
+  title={From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data},
+  author={Feng, Zhiyuan and Li, Qixiu and Liang, Huizhi and Yang, Rushuai and Shen, Yichao and Du, Zhiying and Zhang, Zhaowei and Deng, Yu and Zhao, Li and Zhao, Hao and Lu, Zongqing and Mees, Oier and Pollefeys, Marc and Yang, Jiaolong and Guo, Baining},
+  journal={TechRxiv},
+  year={2026},
+  doi={10.36227/techrxiv.177126525.54038135/v1},
+  url={https://doi.org/10.36227/techrxiv.177126525.54038135/v1}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/microsoft/MV-RoboBench" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content"></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
