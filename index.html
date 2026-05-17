@@ -8,8 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <!-- Google Fonts disabled: fonts.googleapis.com is often unreachable and blocks page load.
+       Fallback to system fonts (defined in static/css/index.css if needed). -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet"> -->
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -20,7 +22,8 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- jQuery loaded from jsDelivr because ajax.googleapis.com is unreachable in some networks. -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
@@ -56,6 +59,12 @@
           <a class="navbar-item" href="https://aaronfengzy.github.io/MV-RoboBench-Webpage/">
             MV-RoboBench
           </a>
+          <a class="navbar-item" href="https://microsoft.github.io/HiSpatial/">
+            HiSpatial
+          </a>
+          <a class="navbar-item" href="https://unix-ai-lab.github.io/WorldReasonBench/">
+            WorldReasonBench
+          </a>
         </div>
       </div>
       
@@ -72,7 +81,18 @@
             From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data
           </h1>
           
-          <div class="is-size-3 publication-venue" style="color: #2974b5; font-weight: 400; margin-bottom: 20px;"></div>
+          <div class="publication-venue">
+            IJCAI 2026
+            <span class="icon" style="color: #f97316;" aria-label="Highlight">
+              <i class="fas fa-fire"></i>
+            </span>
+            <span class="icon" style="color: #f97316;" aria-label="Highlight">
+              <i class="fas fa-fire"></i>
+            </span>
+            <span class="icon" style="color: #f97316;" aria-label="Highlight">
+              <i class="fas fa-fire"></i>
+            </span>
+          </div>
           
           <div class="is-size-5 publication-authors author-lines" style="line-height: 1.6;">
             <div class="author-line">
@@ -145,20 +165,16 @@
           <div class="abstract-inline" style="margin-top: 28px;">
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
-              <table border="0" cellspacing="0" cellpadding="0" style="border:none !important;border-collapse:collapse !important;">
-                <tr>
-                  <td width="55%" valign="top" style="border:none !important;">
-                    <p>Recent progress in generalizable embodied control has been driven by large-scale pretraining of Vision–Language–Action (VLA) models. However, most existing approaches rely on large collections of robot demonstrations, which are costly to obtain and tightly coupled to specific embodiments. Human videos, by contrast, are abundant and capture rich interactions, providing diverse semantic and physical cues for real-world manipulation. Yet, embodiment differences and the frequent absence of task-aligned annotations make their direct use in VLA models challenging.</p>
-                    <p>This survey provides a unified view of how human videos are transformed into effective knowledge for VLA models. We categorize existing approaches into four classes based on the action-related information they derive: (i) latent action representations that encode inter-frame changes; (ii) predictive world models that forecast future frames; (iii) explicit 2D supervision that extracts image-plane cues; and (iv) explicit 3D reconstruction that recovers geometry or motion. Beyond this taxonomy, we highlight three key open challenges in this area: structuring unstructured videos into training-ready episodes, grounding video-derived supervision into robot-executable actions under embodiment and viewpoint heterogeneity, and designing evaluation protocols that better predict real-world deployment performance and transfer efficiency, thereby informing future research directions.</p>
-                  </td>
-                  <td width="45%" valign="top" style="border:none !important;">
-                    <p align="center">
-                      <img src="./static/images/teaser.png" alt="Overview of scalable representation bridges for VLA models" width="420">
-                    </p>
-                    <p align="left"><em>Overview of scalable representation bridges for VLA models. To leverage internet-scale human video data (top), existing methods bridge the embodiment gap via four routes: Latent Action Abstraction, Predictive World Modeling, Explicit 2D Cues, and Explicit 3D Structure. These representations transform diverse human videos into action-relevant learning signals, enabling VLA models to generate executable robot actions from image observations and language instructions (bottom).</em></p>
-                  </td>
-                </tr>
-              </table>
+              <div class="abstract-grid">
+                <div class="abstract-text">
+                  <p>Recent progress in generalizable embodied control has been driven by large-scale pretraining of Vision–Language–Action (VLA) models. However, most existing approaches rely on large collections of robot demonstrations, which are costly to obtain and tightly coupled to specific embodiments. Human videos, by contrast, are abundant and capture rich interactions, providing diverse semantic and physical cues for real-world manipulation. Yet, embodiment differences and the frequent absence of task-aligned annotations make their direct use in VLA models challenging.</p>
+                  <p>This survey provides a unified view of how human videos are transformed into effective knowledge for VLA models. We categorize existing approaches into four classes based on the action-related information they derive: (i) latent action representations that encode inter-frame changes; (ii) predictive world models that forecast future frames; (iii) explicit 2D supervision that extracts image-plane cues; and (iv) explicit 3D reconstruction that recovers geometry or motion. Beyond this taxonomy, we highlight three key open challenges in this area: structuring unstructured videos into training-ready episodes, grounding video-derived supervision into robot-executable actions under embodiment and viewpoint heterogeneity, and designing evaluation protocols that better predict real-world deployment performance and transfer efficiency, thereby informing future research directions.</p>
+                </div>
+                <figure class="abstract-figure">
+                  <img src="./static/images/teaser.png" alt="Overview of scalable representation bridges for VLA models">
+                  <figcaption><em>Overview of scalable representation bridges for VLA models. To leverage internet-scale human video data (top), existing methods bridge the embodiment gap via four routes: Latent Action Abstraction, Predictive World Modeling, Explicit 2D Cues, and Explicit 3D Structure. These representations transform diverse human videos into action-relevant learning signals, enabling VLA models to generate executable robot actions from image observations and language instructions (bottom).</em></figcaption>
+                </figure>
+              </div>
             </div>
           </div>
           <div class="author-meta-divider" style="margin-top: 24px;"></div>
@@ -206,41 +222,55 @@
               </figure>
             </div>
 
-            <div class="content has-text-justified" style="margin-top: 24px;">
-              <h3 class="title is-4">Latent Actions</h3>
-              <p>
-                Learn compact latent tokens that capture motion changes from video with strong bottlenecks, and use them as action proxies.
-                Representative works include <strong>LAPA</strong>, <strong>UniVLA</strong>, <strong>CLAP</strong>, and <strong>LAWM</strong>,
-                but very compact tokens may under-represent high-DoF dexterity.
-              </p>
-            </div>
+            <div class="bridge-grid">
+              <div class="bridge-card bridge-card--latent">
+                <div class="bridge-card__head">
+                  <span class="bridge-card__icon"><i class="fas fa-cube"></i></span>
+                  <h3 class="bridge-card__title">Latent Actions</h3>
+                </div>
+                <p class="bridge-card__body">
+                  Learn compact latent tokens that capture motion changes from video with strong bottlenecks, and use them as action proxies.
+                  Representative works include <strong>LAPA</strong>, <strong>UniVLA</strong>, <strong>CLAP</strong>, and <strong>LAWM</strong>,
+                  but very compact tokens may under-represent high-DoF dexterity.
+                </p>
+              </div>
 
-            <div class="content has-text-justified" style="margin-top: 24px;">
-              <h3 class="title is-4">World Models</h3>
-              <p>
-                Predict future observations or features from current video and language, then transfer the learned dynamics to action
-                prediction. Examples include <strong>GR-1/GR-2</strong>, <strong>FLARE</strong>, and <strong>Mimic-Video</strong>, with
-                planning variants like <strong>Gen2Act</strong>; training cost and transfer efficiency remain key challenges.
-              </p>
-            </div>
+              <div class="bridge-card bridge-card--world">
+                <div class="bridge-card__head">
+                  <span class="bridge-card__icon"><i class="fas fa-globe"></i></span>
+                  <h3 class="bridge-card__title">World Models</h3>
+                </div>
+                <p class="bridge-card__body">
+                  Predict future observations or features from current video and language, then transfer the learned dynamics to action
+                  prediction. Examples include <strong>GR-1/GR-2</strong>, <strong>FLARE</strong>, and <strong>Mimic-Video</strong>, with
+                  planning variants like <strong>Gen2Act</strong>; training cost and transfer efficiency remain key challenges.
+                </p>
+              </div>
 
-            <div class="content has-text-justified" style="margin-top: 24px;">
-              <h3 class="title is-4">Explicit 2D Representations</h3>
-              <p>
-                Use 2D primitives such as keypoints, boxes, and trajectories as intermediate supervision.
-                Representative works include <strong>ATM</strong>, <strong>Magma</strong>, <strong>Gemini Robotics</strong>,
-                <strong>A0</strong>, and <strong>Masquerade</strong>; these cues are efficient but limited by depth and occlusion and can
-                inherit label noise.
-              </p>
-            </div>
+              <div class="bridge-card bridge-card--twod">
+                <div class="bridge-card__head">
+                  <span class="bridge-card__icon"><i class="fas fa-vector-square"></i></span>
+                  <h3 class="bridge-card__title">Explicit 2D Representations</h3>
+                </div>
+                <p class="bridge-card__body">
+                  Use 2D primitives such as keypoints, boxes, and trajectories as intermediate supervision.
+                  Representative works include <strong>ATM</strong>, <strong>Magma</strong>, <strong>Gemini Robotics</strong>,
+                  <strong>A0</strong>, and <strong>Masquerade</strong>; these cues are efficient but limited by depth and occlusion and can
+                  inherit label noise.
+                </p>
+              </div>
 
-            <div class="content has-text-justified" style="margin-top: 24px;">
-              <h3 class="title is-4">Explicit 3D Representations</h3>
-              <p>
-                Recover 3D hand or object poses (often MANO-based) to align human motion with robot actions.
-                Examples include <strong>EgoVLA</strong>, <strong>H-RDT</strong>, <strong>Being-H0</strong>, and <strong>VITRA</strong>;
-                3D grounding is strong, but accurate 3D estimation in the wild remains difficult.
-              </p>
+              <div class="bridge-card bridge-card--threed">
+                <div class="bridge-card__head">
+                  <span class="bridge-card__icon"><i class="fas fa-hand-paper"></i></span>
+                  <h3 class="bridge-card__title">Explicit 3D Representations</h3>
+                </div>
+                <p class="bridge-card__body">
+                  Recover 3D hand or object poses (often MANO-based) to align human motion with robot actions.
+                  Examples include <strong>EgoVLA</strong>, <strong>H-RDT</strong>, <strong>Being-H0</strong>, and <strong>VITRA</strong>;
+                  3D grounding is strong, but accurate 3D estimation in the wild remains difficult.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -290,24 +320,41 @@
           <div class="challenges-inline" style="margin-top: 28px;">
             <h2 class="title is-3 has-text-centered">Challenges and Future Directions</h2>
             <div class="content has-text-justified">
-              <p>
-                We highlight three open challenges along the human-video-to-robot pipeline: episodization, heterogeneity, and evaluation.
+              <p class="challenges-lead">
+                We highlight three open challenges along the human-video-to-robot pipeline:
+                <strong>episodization</strong>, <strong>heterogeneity</strong>, and <strong>evaluation</strong>.
               </p>
-              <p>
-                <strong>Transforming videos to episodes.</strong> Web-scale videos are rarely segmented into training-ready episodes, and
-                weak alignment between narration and manipulation makes supervision noisy. Future episodization should be driven by semantic
-                and interaction cues (e.g., object state changes) rather than fixed windows.
-              </p>
-              <p>
-                <strong>Handling heterogeneity.</strong> Embodiment and viewpoint mismatches make retargeting under-constrained and
-                observations inconsistent. More robust transfer likely requires embodiment-aware grounding and representations anchored to
-                interaction outcomes instead of appearance.
-              </p>
-              <p>
-                <strong>Benchmarking and evaluation.</strong> Existing suites under-represent long-horizon, open-world diversity. Progress
-                depends on protocols that report performance versus robot-data budgets, test robustness to viewpoint/embodiment shifts, and
-                compare models with and without human-video pretraining under matched compute.
-              </p>
+            </div>
+
+            <div class="challenge-grid">
+              <div class="challenge-card">
+                <span class="challenge-card__num">01</span>
+                <h3 class="challenge-card__title">Transforming videos to episodes</h3>
+                <p class="challenge-card__body">
+                  Web-scale videos are rarely segmented into training-ready episodes, and weak alignment between narration and manipulation
+                  makes supervision noisy. Future episodization should be driven by semantic and interaction cues (e.g., object state changes)
+                  rather than fixed windows.
+                </p>
+              </div>
+
+              <div class="challenge-card">
+                <span class="challenge-card__num">02</span>
+                <h3 class="challenge-card__title">Handling heterogeneity</h3>
+                <p class="challenge-card__body">
+                  Embodiment and viewpoint mismatches make retargeting under-constrained and observations inconsistent. More robust transfer
+                  likely requires embodiment-aware grounding and representations anchored to interaction outcomes instead of appearance.
+                </p>
+              </div>
+
+              <div class="challenge-card">
+                <span class="challenge-card__num">03</span>
+                <h3 class="challenge-card__title">Benchmarking and evaluation</h3>
+                <p class="challenge-card__body">
+                  Existing suites under-represent long-horizon, open-world diversity. Progress depends on protocols that report performance
+                  versus robot-data budgets, test robustness to viewpoint/embodiment shifts, and compare models with and without
+                  human-video pretraining under matched compute.
+                </p>
+              </div>
             </div>
           </div>
 

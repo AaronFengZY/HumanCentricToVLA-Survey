@@ -65,13 +65,18 @@ $(document).ready(function() {
         player.currentTime = player.duration / 100 * this.value;
       })
     }, false);*/
-    preloadInterpolationImages();
+    // Only run the interpolation preloader when the slider exists on the page.
+    // Otherwise it will fire 240 missing-image requests and keep the page in a
+    // perpetual "loading" state (e.g. with Live Server).
+    if (document.getElementById('interpolation-slider')) {
+      preloadInterpolationImages();
 
-    $('#interpolation-slider').on('input', function(event) {
-      setInterpolationImage(this.value);
-    });
-    setInterpolationImage(0);
-    $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
+      $('#interpolation-slider').on('input', function(event) {
+        setInterpolationImage(this.value);
+      });
+      setInterpolationImage(0);
+      $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
+    }
 
     bulmaSlider.attach();
 
