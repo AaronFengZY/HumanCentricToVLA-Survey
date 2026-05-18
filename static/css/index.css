@@ -190,6 +190,17 @@ body {
   color: #6b7280;
 }
 
+.author-mark-mail {
+  font-size: 0.78em;
+  color: #6b7280;
+  margin-left: 0.12em;
+  vertical-align: baseline;
+}
+
+sup .author-mark-mail {
+  font-size: 0.9em;
+}
+
 .author-meta-divider {
   height: 1px;
   width: 80%;
