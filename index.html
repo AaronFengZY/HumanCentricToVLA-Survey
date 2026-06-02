@@ -48,6 +48,12 @@
       </span>
       </a>
 
+      <a class="navbar-item nav-anchor" href="#abstract">Abstract</a>
+      <a class="navbar-item nav-anchor" href="#taxonomy">Taxonomy</a>
+      <a class="navbar-item nav-anchor" href="#data">Data</a>
+      <a class="navbar-item nav-anchor" href="#challenges">Challenges</a>
+      <a class="navbar-item nav-anchor" href="#BibTeX">BibTeX</a>
+
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           More Research
@@ -77,6 +83,8 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           
+          <span class="eyebrow"><span class="dot"></span>Survey &middot; Vision-Language-Action</span>
+
           <h1 class="title is-2 publication-title">
             From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data
           </h1>
@@ -140,7 +148,7 @@
             <div class="publication-links">
               
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2510.19400"
+                <a href="https://arxiv.org/abs/2606.00054"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -150,7 +158,7 @@
               </span>
 
               <span class="link-block">
-                <a href="https://github.com/microsoft/MV-RoboBench?tab=readme-ov-file"
+                <a href="https://github.com/AaronFengZY/HumanCentricToVLA-Survey"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -162,7 +170,26 @@
             </div>
           </div>
           
-          <div class="abstract-inline" style="margin-top: 28px;">
+          <div class="stats-strip">
+            <div class="stat-card">
+              <div class="stat-num">4</div>
+              <div class="stat-label">Representation Bridges</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">30+</div>
+              <div class="stat-label">Methods Surveyed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">17</div>
+              <div class="stat-label">Human-Video Datasets</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">3</div>
+              <div class="stat-label">Open Challenges</div>
+            </div>
+          </div>
+
+          <div class="abstract-inline" id="abstract" style="margin-top: 28px;">
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
               <div class="abstract-grid">
@@ -179,8 +206,67 @@
           </div>
           <div class="author-meta-divider" style="margin-top: 24px;"></div>
 
-          <div class="taxonomy-inline" style="margin-top: 28px;">
-            <h2 class="title is-3 has-text-centered">From Video to Action: A Taxonomy of Representation Bridges</h2>
+          <div class="contributions-inline" style="margin-top: 28px;">
+            <div class="section-heading">
+              <span class="section-kicker">What this survey offers</span>
+              <h2 class="title is-3">Key Contributions</h2>
+            </div>
+            <div class="contrib-grid">
+              <div class="contrib-card">
+                <span class="contrib-card__icon"><i class="fas fa-sitemap"></i></span>
+                <h3 class="contrib-card__title">Signal-centric taxonomy</h3>
+                <p class="contrib-card__body">
+                  A pipeline-based taxonomy of representation bridges that turn human videos into action-relevant signals,
+                  comparing the four routes by representation form, scalability, and grounding requirements.
+                </p>
+              </div>
+              <div class="contrib-card">
+                <span class="contrib-card__icon"><i class="fas fa-database"></i></span>
+                <h3 class="contrib-card__title">Dataset map &amp; signals</h3>
+                <p class="contrib-card__body">
+                  A systematization of representative human-video datasets along two axes &mdash; explicit 3D signals and
+                  scripted vs. in-the-wild collection &mdash; clarifying which supervision supports which transfer pipeline.
+                </p>
+              </div>
+              <div class="contrib-card">
+                <span class="contrib-card__icon"><i class="fas fa-flag-checkered"></i></span>
+                <h3 class="contrib-card__title">Challenges at three interfaces</h3>
+                <p class="contrib-card__body">
+                  Open problems at three critical interfaces: scalable episodization of unstructured videos, heterogeneity-aware
+                  grounding under embodiment/viewpoint mismatch, and deployment-predictive evaluation of transfer efficiency.
+                </p>
+              </div>
+            </div>
+
+            <div class="pipeline">
+              <div class="pipeline__node">
+                <span class="p-icon"><i class="fab fa-youtube"></i></span>
+                <span class="p-title">Human Videos</span>
+                <span class="p-sub">Internet-scale, unlabeled</span>
+              </div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="pipeline__bridges">
+                <span class="pipeline__bridge pipeline__bridge--latent"><i class="fas fa-cube"></i>Latent Actions</span>
+                <span class="pipeline__bridge pipeline__bridge--world"><i class="fas fa-globe"></i>World Models</span>
+                <span class="pipeline__bridge pipeline__bridge--twod"><i class="fas fa-vector-square"></i>Explicit 2D</span>
+                <span class="pipeline__bridge pipeline__bridge--threed"><i class="fas fa-hand-paper"></i>Explicit 3D</span>
+              </div>
+              <div class="pipeline__arrow"><i class="fas fa-arrow-right"></i></div>
+              <div class="pipeline__node">
+                <span class="p-icon"><i class="fas fa-robot"></i></span>
+                <span class="p-title">Robot Actions</span>
+                <span class="p-sub">Executable control</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="author-meta-divider" style="margin-top: 24px;"></div>
+
+          <div class="taxonomy-inline" id="taxonomy" style="margin-top: 28px;">
+            <div class="section-heading">
+              <span class="section-kicker">From video to action</span>
+              <h2 class="title is-3">A Taxonomy of Representation Bridges</h2>
+            </div>
             <div class="content has-text-justified">
               <p>
                 We organize prior work into four representation bridges that translate human video into action-relevant signals.
@@ -227,6 +313,7 @@
                 <div class="bridge-card__head">
                   <span class="bridge-card__icon"><i class="fas fa-cube"></i></span>
                   <h3 class="bridge-card__title">Latent Actions</h3>
+                  <span class="bridge-card__tag">Implicit</span>
                 </div>
                 <p class="bridge-card__body">
                   Learn compact latent tokens that capture motion changes from video with strong bottlenecks, and use them as action proxies.
@@ -239,6 +326,7 @@
                 <div class="bridge-card__head">
                   <span class="bridge-card__icon"><i class="fas fa-globe"></i></span>
                   <h3 class="bridge-card__title">World Models</h3>
+                  <span class="bridge-card__tag">Predictive</span>
                 </div>
                 <p class="bridge-card__body">
                   Predict future observations or features from current video and language, then transfer the learned dynamics to action
@@ -251,6 +339,7 @@
                 <div class="bridge-card__head">
                   <span class="bridge-card__icon"><i class="fas fa-vector-square"></i></span>
                   <h3 class="bridge-card__title">Explicit 2D Representations</h3>
+                  <span class="bridge-card__tag">Explicit</span>
                 </div>
                 <p class="bridge-card__body">
                   Use 2D primitives such as keypoints, boxes, and trajectories as intermediate supervision.
@@ -264,6 +353,7 @@
                 <div class="bridge-card__head">
                   <span class="bridge-card__icon"><i class="fas fa-hand-paper"></i></span>
                   <h3 class="bridge-card__title">Explicit 3D Representations</h3>
+                  <span class="bridge-card__tag">Explicit</span>
                 </div>
                 <p class="bridge-card__body">
                   Recover 3D hand or object poses (often MANO-based) to align human motion with robot actions.
@@ -274,8 +364,11 @@
             </div>
           </div>
 
-          <div class="dataset-inline" style="margin-top: 28px;">
-            <h2 class="title is-3 has-text-centered">Human-Centric Data for VLA Learning</h2>
+          <div class="dataset-inline" id="data" style="margin-top: 28px;">
+            <div class="section-heading">
+              <span class="section-kicker">Where the signals come from</span>
+              <h2 class="title is-3">Human-Centric Data for VLA Learning</h2>
+            </div>
             <div class="content has-text-justified">
               <p>
                 We organize human-video datasets along two axes: whether they provide explicit metric 3D action labels and whether
@@ -317,8 +410,11 @@
             </div>
           </div>
 
-          <div class="challenges-inline" style="margin-top: 28px;">
-            <h2 class="title is-3 has-text-centered">Challenges and Future Directions</h2>
+          <div class="challenges-inline" id="challenges" style="margin-top: 28px;">
+            <div class="section-heading">
+              <span class="section-kicker">Open problems</span>
+              <h2 class="title is-3">Challenges and Future Directions</h2>
+            </div>
             <div class="content has-text-justified">
               <p class="challenges-lead">
                 We highlight three open challenges along the human-video-to-robot pipeline:
@@ -372,12 +468,14 @@
       <h2 class="title">BibTeX</h2>
       <button class="button is-small is-light bibtex-copy" type="button" id="bibtex-copy-btn">Copy</button>
     </div>
-    <pre><code id="bibtex-content">@article{feng2026human,
-  title={From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data},
-  author={Feng, Zhiyuan and Li, Qixiu and Liang, Huizhi and Yang, Rushuai and Shen, Yichao and Du, Zhiying and Zhang, Zhaowei and Deng, Yu and Zhao, Li and Zhao, Hao and others},
-  journal={Authorea Preprints},
-  year={2026},
-  publisher={Authorea}
+    <pre><code id="bibtex-content">@misc{feng2026humanvideosrobotmanipulation,
+      title={From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data}, 
+      author={Zhiyuan Feng and Qixiu Li and Huizhi Liang and Rushuai Yang and Yichao Shen and Zhiying Du and Zhaowei Zhang and Yu Deng and Li Zhao and Hao Zhao and Zongqing Lu and Oier Mees and Marc Pollefeys and Jiaolong Yang and Baining Guo},
+      year={2026},
+      eprint={2606.00054},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2606.00054}, 
 }</code></pre>
   </div>
 </section>
@@ -385,16 +483,20 @@
 
 <footer class="footer">
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="https://github.com/microsoft/MV-RoboBench" class="external-link" disabled>
+    <div class="footer-links">
+      <a class="icon-link" href="https://arxiv.org/abs/2606.00054" aria-label="arXiv">
+        <i class="ai ai-arxiv"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/AaronFengZY/HumanCentricToVLA-Survey" aria-label="GitHub">
         <i class="fab fa-github"></i>
       </a>
     </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content"></div>
-      </div>
-    </div>
+    <p class="footer-note">
+      A curated list of papers and resources is available on
+      <a href="https://github.com/AaronFengZY/HumanCentricToVLA-Survey">GitHub</a>.<br>
+      Page template adapted from the
+      <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page.
+    </p>
   </div>
 </footer>
 
